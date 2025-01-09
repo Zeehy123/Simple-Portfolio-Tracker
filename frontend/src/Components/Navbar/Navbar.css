@@ -1,0 +1,27 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: #121212;
+  color: #ffffff;
+}
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+.nav button {
+  margin-left: 1rem;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.login-btn {
+  background-color: #f0f0f0;
+  color: #121212;
+}
+.get-started-btn {
+  background-color: #007bff;
+  color: white;
+}

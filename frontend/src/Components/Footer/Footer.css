@@ -1,0 +1,134 @@
+.footer-container {
+  background-color: #1a1a1a;
+  color: #d1d1d1;
+  padding: 40px 20px;
+  font-family: Arial, sans-serif;
+}
+.Container {
+  gap: 70px;
+  display: flex;
+  flex-direction: row;
+}
+
+.feedback-section {
+  max-width: 400px;
+  margin-left: 50px;
+  text-align: left;
+}
+
+.feedback-section h2 {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.feedback-section p {
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+
+.feedback-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.feedback-form input {
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+  background-color: #2a2a2a;
+  color: #fff;
+}
+
+.feedback-form button {
+  background-color: #00aaff;
+  color: #fff;
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.feedback-form button:hover {
+  background-color: #0088cc;
+}
+
+.privacy-link {
+  font-size: 12px;
+  margin-top: 10px;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.footer-content {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  justify-content: space-between;
+  padding: 0 20px;
+}
+
+.footer-column h3 {
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.footer-column ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-column ul li {
+  margin-bottom: 5px;
+  line-height: 1.5;
+}
+
+.subscription form {
+  display: flex;
+  gap: 10px;
+}
+
+.subscription input {
+  padding: 8px;
+  border: none;
+  border-radius: 4px;
+  flex: 1;
+  background-color: #2a2a2a;
+  color: #fff;
+}
+
+.subscription button {
+  background-color: #00aaff;
+  color: #fff;
+  padding: 8px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.subscription button:hover {
+  background-color: #0088cc;
+}
+
+.social-icons {
+  margin-top: 10px;
+  display: flex;
+}
+
+.social-icons a {
+  color: #d1d1d1;
+  margin-right: 10px;
+  font-size: 16px;
+  text-decoration: none;
+}
+
+.footer-bottom {
+  text-align: center;
+  font-size: 14px;
+  border-top: 1px solid #333;
+  padding-top: 10px;
+}
+
+.footer-bottom p {
+  margin: 5px 0;
+}

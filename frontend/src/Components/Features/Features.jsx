@@ -1,6 +1,20 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import "./Features.css";
 import FeatureImage from "../Assets/feature_image.avif";
+
+const FAQCard = ({ question, answer }) => {
+  const [isOpen, setIsOpen] = useState(false);
+
+  return (
+    <div className="faq-card">
+      <div className="faq-header" onClick={() => setIsOpen(!isOpen)}>
+        <h3>{question}</h3>
+        <span className={`arrow ${isOpen ? "open" : ""}`}>➔</span>
+      </div>
+      {isOpen && <p className="faq-answer">{answer}</p>}
+    </div>
+  );
+};
 
 const Features = () => {
   const imageRef = useRef(null);
@@ -23,48 +37,45 @@ const Features = () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
-
   return (
-    <div className="feature-section">
+    <section className="feature-section">
       <div className="feature-left">
         <img
           src={FeatureImage}
-          alt="Feature"
+          alt="Investment Tools"
           ref={imageRef}
           className={`feature-image ${isVisible ? "bounce" : ""}`}
         />
-        <h2>Your Roadmap to Achieve the Bright Future Financial Freedom</h2>
+        <h2>Your Roadmap to Achieve Financial Freedom</h2>
         <p>
-          Invezt helps define your investment journey with the help of highly
-          skilled mentors and investment robots. Investment is needed by
-          everyone, and in the future, it will become a necessity for everyone.
+          Am_stock helps define your investment journey with the help of highly
+          skilled mentors and investment tools. Investment is essential for
+          everyone and will become a necessity in the future.
         </p>
       </div>
       <div className="feature-right">
-        <div className="faq-card">
-          <div className="faq-header">
-            <h3>What is Invezt?</h3>
-            <span className="arrow">&#9656;</span>
-          </div>
-          <div className="faq-answer">Invezt is a platform...</div>
-        </div>
-        <div className="faq-card">
-          <div className="faq-header">
-            <h3>Is Invezt safe to use?</h3>
-            <span className="arrow">&#9656;</span>
-          </div>
-          <div className="faq-answer">Yes, Invezt ensures...</div>
-        </div>
+        <FAQCard
+          question="What is Am_Stock?"
+          answer="Am_stock is a tool to help you manage investments with advanced analytics and personalized advice."
+        />
+        <FAQCard
+          question="Is Am_Stock safe to use?"
+          answer="Yes,  Am_Stock is designed with robust security measures to ensure your data and investments are safe."
+        />
+        <FAQCard
+          question="Is  Am_Stock safe to use?"
+          answer="Yes,  Am_Stock is designed with robust security measures to ensure your data and investments are safe."
+        />
         <div className="highlight-card">
-          <h3>Why choose Invezt over other platforms?</h3>
+          <h3>Why choose Am_Stock over other platforms?</h3>
           <p>
-            Invezt can help you give advice to your investment plan. Give you a
-            mentor with highly skilled and match stocks to your plan. Another
-            way, you can use robot invest to create your plan.
+            Am_stock can help you create an investment plan with guidance from
+            skilled mentors and tools to match stocks with your goals. You can
+            also use AI-powered tools to build a customized plan.
           </p>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

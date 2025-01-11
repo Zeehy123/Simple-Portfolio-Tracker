@@ -1,0 +1,27 @@
+.features {
+  padding: 2rem;
+  background-color: #f8f9fa;
+}
+.features h2 {
+  text-align: center;
+  color: #121212;
+  margin-bottom: 1.5rem;
+}
+.features-list {
+  display: flex;
+  justify-content: space-around;
+}
+.feature {
+  text-align: center;
+  width: 17%;
+  background-color: #272b3b;
+  margin-left: 15px;
+  border-radius: 15px;
+  padding: 15px;
+  color: white;
+}
+.feature-icon {
+  font-size: 2rem;
+  display: block;
+  margin-bottom: 0.5rem;
+}

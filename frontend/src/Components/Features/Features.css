@@ -4,7 +4,9 @@
   align-items: flex-start;
   gap: 2rem;
   padding: 2rem;
-  background-color: #f8f9fa;
+  margin-left: 30px;
+
+  margin-top: 30px;
 }
 
 .feature-left {
@@ -13,11 +15,11 @@
 }
 
 .feature-left .feature-image {
-  width: 80%;
+  width: 70%;
   border-radius: 8px;
   margin-bottom: 1rem;
+  height: 30%;
 
-  /* Add animation */
   animation: rotateAndBounce 3s infinite ease-in-out;
 }
 .feature-image {
@@ -46,18 +48,21 @@
 
 .feature-left h2 {
   font-size: 1.8rem;
-  color: #333;
+  color: black;
   margin-bottom: 0.5rem;
+  font-weight: 600;
+  margin-top: 0;
 }
 
 .feature-left p {
   font-size: 1rem;
   color: #555;
+  line-height: 1.5;
 }
 
 .feature-right {
   flex: 1;
-  max-width: 45%;
+  max-width: 50%;
   display: flex;
   flex-direction: column;
   gap: 1rem;
@@ -91,7 +96,7 @@
 
 .arrow {
   font-size: 1.2rem;
-  color: #007bff;
+  color: #272b3b;
   transition: transform 0.3s ease;
 }
 
@@ -119,7 +124,7 @@
 }
 
 .highlight-card {
-  background: #e3f2fd;
+  background: #a8dce7;
   padding: 1.5rem;
   border-radius: 8px;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.05);

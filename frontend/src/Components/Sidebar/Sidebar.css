@@ -1,0 +1,86 @@
+.sidebar {
+  width: 180px;
+  height: 100vh;
+  background-color: #272b3b;
+  color: #ffffff;
+  position: fixed;
+  top: 0;
+  left: 0;
+  transition: width 0.3s ease;
+  overflow: hidden;
+}
+
+.sidebar.closed {
+  width: 60px;
+}
+
+.name {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #ffffff;
+  margin-top: 15px;
+  margin-left: 15px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+}
+
+.sidebar-content {
+  padding: 15px;
+}
+
+.sidebar-content ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar-content ul li {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  font-size: 15px;
+  padding: 8px;
+  margin: 8px 0;
+  transition: background-color 0.3s ease;
+}
+
+.sidebar-content ul li:hover {
+  color: #a8dce7;
+}
+
+.sidebar-content .icon {
+  font-size: 20px;
+  margin-right: 10px;
+  color: white;
+}
+
+.sidebar.closed .sidebar-content .icon {
+  margin-right: 0; /* Remove margin when collapsed */
+  display: flex;
+  justify-content: center;
+}
+
+.sidebar-content .dropdown-toggle {
+  display: flex;
+  align-items: center;
+  padding: 8px;
+  cursor: pointer;
+}
+
+.sidebar-content .arrow-icon {
+  font-size: 0.9rem;
+  padding-left: 5px;
+}
+
+.sidebar.closed .sidebar-content .arrow-icon {
+  display: none; /* Hide arrow in collapsed state */
+}
+
+.sidebar-content .dropdown {
+  margin-left: 20px;
+}
+
+.sidebar.closed .dropdown {
+  display: none; /* Hide dropdown items in collapsed state */
+}

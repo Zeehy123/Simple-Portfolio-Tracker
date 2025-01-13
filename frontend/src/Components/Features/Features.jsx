@@ -48,9 +48,10 @@ const Features = () => {
         />
         <h2>Your Roadmap to Achieve Financial Freedom</h2>
         <p>
-          Am_stock helps define your investment journey with the help of highly
-          skilled mentors and investment tools. Investment is essential for
-          everyone and will become a necessity in the future.
+          Am_stock empowers your stock investment journey with the guidance of
+          highly skilled mentors and advanced stock management tools. Investing
+          in stocks is a crucial step towards financial growth and is set to
+          become indispensable in the future.
         </p>
       </div>
       <div className="feature-right">
@@ -60,18 +61,20 @@ const Features = () => {
         />
         <FAQCard
           question="Is Am_Stock safe to use?"
-          answer="Yes,  Am_Stock is designed with robust security measures to ensure your data and investments are safe."
+          answer="Yes,  am_stocks have provided higher returns compared to other investment options like bonds or savings accounts."
         />
         <FAQCard
           question="Is  Am_Stock safe to use?"
-          answer="Yes,  Am_Stock is designed with robust security measures to ensure your data and investments are safe."
+          answer="Yes, Stocks are easy to buy and sell, offering flexibility if you need to access your money."
         />
         <div className="highlight-card">
           <h3>Why choose Am_Stock over other platforms?</h3>
           <p>
-            Am_stock can help you create an investment plan with guidance from
-            skilled mentors and tools to match stocks with your goals. You can
-            also use AI-powered tools to build a customized plan.
+            Unlike many other platforms that prioritize transactions, am_stock
+            focuses on empowering users with education, insights, and
+            mentorship. It’s not just about buying and selling stocks—it’s about
+            building a personalized investment journey that aligns with your
+            goals.
           </p>
         </div>
       </div>

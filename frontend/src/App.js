@@ -7,6 +7,7 @@ import Testimonials from "./Components/Testimonials/Testimonials";
 
 import Login from "./Components/Pages/Login";
 import SignUp from "./Components/Pages/SignUp";
+import Dashboard from "./Components/Dashboard/Dashboard";
 
 function App() {
   return (
@@ -28,6 +29,8 @@ function App() {
           <Route path="/signup" element={<SignUp />} />
 
           <Route path="login" element={<Login />} />
+
+          <Route path="/dashboard" element={<Dashboard />} />
         </Routes>
       </Router>
     </div>

@@ -13,7 +13,7 @@ const Login = () => {
     <div className="login-container">
       <div className="login-box">
         <button className="close-button">✖</button>
-        <h2>Log In With</h2>
+        <h2>Log In</h2>
 
         <form className="login-form">
           <div className="input-group">

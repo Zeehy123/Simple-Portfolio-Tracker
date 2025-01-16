@@ -4,7 +4,7 @@
 }
 
 .sidebar {
-  width: 200px;
+  /* width: 180px; */
   background-color: #272b3b;
   color: white;
   height: 100%;
@@ -19,5 +19,36 @@
 }
 
 .main-content.sidebar-open {
-  margin-left: 200px;
+  margin-left: 180px;
+}
+
+@media (max-width: 1024px) {
+  .main-content.sidebar-open {
+    margin-left: 150px;
+  }
+}
+@media (max-width: 768px) {
+  .main-content.sidebar-open {
+    margin-left: 130px;
+  }
+}
+@media (max-width: 425px) {
+  .main-content.sidebar-open {
+    margin-left: 100px;
+  }
+}
+@media (max-width: 400px) {
+  .main-content.sidebar-open {
+    margin-left: 92px;
+  }
+}
+@media (max-width: 325px) {
+  .main-content.sidebar-open {
+    margin-left: 52px;
+  }
+}
+@media (max-width: 320px) {
+  .main-content.sidebar-open {
+    margin-left: 92px;
+  }
 }

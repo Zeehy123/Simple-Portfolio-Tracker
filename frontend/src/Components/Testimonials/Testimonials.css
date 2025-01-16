@@ -1,27 +1,199 @@
-.features {
-  padding: 2rem;
+.testimonials {
+  padding: 16px;
   background-color: #f8f9fa;
 }
-.features h2 {
+
+.testimonials h2 {
   text-align: center;
   color: #121212;
-  margin-bottom: 1.5rem;
+  margin-bottom: 24px;
+  font-size: 1.8rem;
 }
-.features-list {
+
+.testimonial-list {
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  padding: 2rem;
+  background-color: #f9f9f9;
 }
-.feature {
+
+.testimonial {
   text-align: center;
-  width: 17%;
+  width: 270px;
   background-color: #272b3b;
-  margin-left: 15px;
-  border-radius: 15px;
-  padding: 15px;
-  color: white;
+  height: 200px;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transform: translate(0, 0);
+  animation: moveAround 3s infinite ease-in-out;
 }
-.feature-icon {
-  font-size: 2rem;
+
+/* Keyframes for moving cards */
+@keyframes moveAround {
+  0% {
+    transform: translate(0, 0);
+  }
+  25% {
+    transform: translate(10px, -10px) rotate(3deg);
+  }
+  50% {
+    transform: translate(-10px, 10px) rotate(-3deg);
+  }
+  75% {
+    transform: translate(10px, 5px) rotate(1deg);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
+
+/* Add staggered delays to each card */
+.testimonial:nth-child(1) {
+  animation-delay: 0s;
+}
+
+.testimonial:nth-child(2) {
+  animation-delay: 0.5s;
+}
+
+.testimonial:nth-child(3) {
+  animation-delay: 1s;
+}
+
+.testimonial:nth-child(4) {
+  animation-delay: 1.5s;
+}
+
+.testimonial-icon {
+  font-size: 32px;
   display: block;
   margin-bottom: 0.5rem;
+}
+
+.testimonial p {
+  color: #ffffff;
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 0 auto;
+  width: 85%;
+}
+
+/* Responsive Breakpoints */
+@media (max-width: 1440px) {
+  .testimonials h2 {
+    font-size: 1.6rem;
+  }
+
+  .testimonial {
+    width: 240px;
+    height: 180px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .testimonials h2 {
+    font-size: 1.4rem;
+  }
+
+  .testimonial {
+    width: 220px;
+    height: 160px;
+  }
+}
+
+@media (max-width: 768px) {
+  .testimonials h2 {
+    font-size: 1.2rem;
+  }
+
+  .testimonial {
+    width: 200px;
+    height: 150px;
+  }
+
+  .testimonial p {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 425px) {
+  .testimonials h2 {
+    font-size: 1rem;
+  }
+
+  .testimonial {
+    width: 180px;
+    height: 140px;
+  }
+
+  .testimonial-icon {
+    font-size: 28px;
+  }
+
+  .testimonial p {
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 400px) {
+  .testimonials h2 {
+    font-size: 0.9rem;
+  }
+
+  .testimonial {
+    width: 160px;
+    height: 130px;
+  }
+}
+
+@media (max-width: 380px) {
+  .testimonials h2 {
+    font-size: 0.8rem;
+  }
+
+  .testimonial {
+    width: 140px;
+    height: 120px;
+  }
+
+  .testimonial-icon {
+    font-size: 24px;
+  }
+
+  .testimonial p {
+    font-size: 0.7rem;
+  }
+}
+
+@media (max-width: 350px) {
+  .testimonials h2 {
+    font-size: 0.75rem;
+  }
+
+  .testimonial {
+    width: 130px;
+    height: 110px;
+  }
+}
+
+@media (max-width: 320px) {
+  .testimonials h2 {
+    font-size: 0.7rem;
+  }
+
+  .testimonial {
+    width: 120px;
+    height: 100px;
+  }
+
+  .testimonial-icon {
+    font-size: 20px;
+  }
+
+  .testimonial p {
+    font-size: 0.6rem;
+  }
 }

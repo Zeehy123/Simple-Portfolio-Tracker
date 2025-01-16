@@ -10,9 +10,9 @@ const Header = ({ toggleSidebar }) => {
       <div className="search-bar">
         <input type="text" placeholder="Search by keyword" />
       </div>
-      <div className="header-icons">
+      <div className="icons">
         <span>🔔</span>
-        <span>user</span>
+        <span className="icon1">user</span>
       </div>
     </div>
   );

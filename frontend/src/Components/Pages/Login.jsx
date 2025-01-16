@@ -1,18 +1,28 @@
 import React, { useState } from "react";
 import "./Login.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Login = () => {
   const [passwordVisible, setPasswordVisible] = useState(false);
+  const [isVisible, setIsVisible] = useState(true);
+  const navigate = useNavigate();
 
   const togglePasswordVisibility = () => {
     setPasswordVisible(!passwordVisible);
   };
-
+  const closeModal = () => {
+    setIsVisible(false);
+    navigate("/");
+  };
+  if (!isVisible) {
+    return null;
+  }
   return (
     <div className="login-container">
       <div className="login-box">
-        <button className="close-button">✖</button>
+        <button className="close-button" onClick={closeModal}>
+          ✖
+        </button>
         <h2>Log In</h2>
 
         <form className="login-form">

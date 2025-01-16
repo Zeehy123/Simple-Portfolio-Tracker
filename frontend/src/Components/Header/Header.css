@@ -1,6 +1,5 @@
 .header {
-  /* width: 100%; */
-  height: 60px;
+  height: 80px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -15,13 +14,6 @@
 .menu-icon {
   font-size: 1.5rem;
   cursor: pointer;
-  color: #2b2b2b;
-}
-
-.logo {
-  font-size: 1.5rem;
-  font-weight: bold;
-  color: #2b2b2b;
 }
 
 .search-bar {
@@ -30,26 +22,121 @@
 }
 
 .search-bar input {
-  width: 20%;
-  padding: 8px 12px;
+  width: 100%;
+  max-width: 200px;
+  padding: 6px 8px;
   border: 1px solid #dcdcdc;
-  border-radius: 10px;
+  border-radius: 15px;
   outline: none;
 }
 
-.header-icons {
+.icons {
   display: flex;
   align-items: center;
   gap: 15px;
 }
 
-.header-icons span {
+.icon1 {
   font-size: 1.2rem;
   color: #2b2b2b;
   cursor: pointer;
   transition: color 0.3s ease;
 }
 
-.header-icons span:hover {
-  color: #007bff;
+.icon1:hover {
+  color: #a8dce7;
+}
+
+/* Responsive styles */
+
+/* Screen size 1024px and below */
+@media (max-width: 1024px) {
+  .search-bar {
+    margin: 0 10px;
+  }
+
+  .search-bar input {
+    max-width: 250px;
+  }
+
+  .icons {
+    gap: 10px;
+  }
+}
+
+/* Screen size 768px and below */
+@media (max-width: 768px) {
+  .search-bar {
+    flex: none;
+    margin: 0 5px;
+  }
+
+  .search-bar input {
+    max-width: 200px;
+  }
+}
+
+/* Screen size 425px and below */
+@media (max-width: 425px) {
+  .header {
+    flex-direction: row;
+    align-items: flex-start;
+    height: auto;
+    padding: 10px;
+    width: 90%;
+  }
+  .search-bar {
+    display: none; /* Hide search bar on small screens */
+  }
+
+  .icons {
+    gap: 8px;
+  }
+}
+
+/* Screen size 400px and below */
+@media (max-width: 400px) {
+  .icon1 {
+    font-size: 1rem;
+  }
+  .header {
+    width: 91%;
+  }
+  .menu-icon {
+    font-size: 1.3rem;
+  }
+}
+
+/* Screen size 380px and below */
+@media (max-width: 380px) {
+  .header {
+    height: auto;
+    padding: 10px;
+  }
+}
+
+/* Screen size 350px and below */
+@media (max-width: 350px) {
+  .icon {
+    font-size: 0.9rem;
+  }
+
+  .menu-icon {
+    font-size: 1.2rem;
+  }
+}
+
+/* Screen size 320px and below */
+@media (max-width: 320px) {
+  .header {
+    padding: 5px;
+  }
+
+  .icons {
+    gap: 5px;
+  }
+
+  .icon {
+    font-size: 0.8rem;
+  }
 }

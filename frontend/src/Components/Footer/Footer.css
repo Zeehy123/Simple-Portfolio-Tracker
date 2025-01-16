@@ -132,3 +132,97 @@
 .footer-bottom p {
   margin: 5px 0;
 }
+@media (max-width: 1440px) {
+  .footer-container {
+    padding: 30px 20px;
+  }
+}
+
+/* Medium-large screens (1024px) */
+@media (max-width: 1024px) {
+  .footer-content {
+    gap: 20px;
+  }
+
+  .footer-column {
+    flex: 1 1 calc(50% - 20px);
+  }
+
+  .feedback-section {
+    text-align: center;
+  }
+}
+
+/* Tablets (768px) */
+@media (max-width: 768px) {
+  .footer-content {
+    flex-direction: row;
+    gap: 20px;
+  }
+
+  .footer-column {
+    flex: 1 1 100%;
+  }
+}
+
+/* Small screens (425px) */
+@media (max-width: 425px) {
+  .feedback-form input,
+  .subscription input {
+    padding: 8px;
+    font-size: 14px;
+  }
+
+  .feedback-form button,
+  .subscription button {
+    padding: 8px;
+    font-size: 14px;
+  }
+}
+
+/* Very small screens (400px) */
+@media (max-width: 400px) {
+  .footer-container {
+    gap: 20px;
+    padding: 20px 10px;
+  }
+
+  .feedback-section h2 {
+    font-size: 16px;
+  }
+}
+
+/* Narrow screens (380px) */
+@media (max-width: 380px) {
+  .footer-column ul li {
+    font-size: 12px;
+  }
+
+  .social-icons a {
+    font-size: 14px;
+  }
+}
+
+/* Ultra-narrow screens (350px) */
+@media (max-width: 350px) {
+  .footer-column h3 {
+    font-size: 14px;
+  }
+}
+
+/* Minimal screens (320px) */
+@media (max-width: 320px) {
+  .feedback-section h2,
+  .footer-column h3 {
+    font-size: 14px;
+  }
+
+  .feedback-form input,
+  .subscription input {
+    font-size: 12px;
+  }
+
+  .social-icons a {
+    margin-right: 5px;
+  }
+}

@@ -11,7 +11,7 @@
 }
 
 .sidebar.closed {
-  width: 60px;
+  width: 59px;
 }
 
 .name {
@@ -52,11 +52,10 @@
 .sidebar-content .icon {
   font-size: 20px;
   margin-right: 10px;
-  color: white;
 }
 
 .sidebar.closed .sidebar-content .icon {
-  margin-right: 0; /* Remove margin when collapsed */
+  margin-right: 0;
   display: flex;
   justify-content: center;
 }
@@ -82,5 +81,122 @@
 }
 
 .sidebar.closed .dropdown {
-  display: none; /* Hide dropdown items in collapsed state */
+  display: none;
+}
+
+/* Responsive Styles */
+
+/* Screen size 1024px and below */
+@media (max-width: 1024px) {
+  .sidebar {
+    width: 150px;
+  }
+
+  .sidebar.closed {
+    width: 60px;
+  }
+
+  .name {
+    font-size: 1rem;
+  }
+
+  .sidebar-content ul li {
+    font-size: 14px;
+  }
+
+  .sidebar-content .icon {
+    font-size: 18px;
+  }
+}
+
+/* Screen size 768px and below */
+@media (max-width: 768px) {
+  .sidebar {
+    width: 132px;
+  }
+
+  .sidebar.closed {
+    width: 59px;
+  }
+
+  .name {
+    font-size: 0.9rem;
+  }
+
+  .sidebar-content ul li {
+    font-size: 13px;
+  }
+}
+
+/* Screen size 425px and below */
+@media (max-width: 425px) {
+  .sidebar {
+    width: 100px;
+  }
+
+  .sidebar.closed {
+    width: 58px;
+  }
+
+  .name {
+    display: none; /* Hide name for smaller screens */
+  }
+
+  .sidebar-content ul li {
+    font-size: 12px;
+  }
+}
+
+/* Screen size 400px and below */
+@media (max-width: 400px) {
+  .sidebar {
+    width: 90px;
+  }
+
+  .sidebar.closed {
+    width: 59px;
+  }
+
+  .sidebar-content ul li {
+    font-size: 11px;
+  }
+}
+
+/* Screen size 380px and below */
+@media (max-width: 380px) {
+  .sidebar.closed {
+    width: 58px;
+  }
+
+  .sidebar-content ul li {
+    padding: 6px;
+  }
+}
+
+/* Screen size 350px and below */
+@media (max-width: 350px) {
+  .sidebar.closed {
+    width: 55px;
+  }
+
+  .sidebar-content ul li {
+    font-size: 10px;
+    padding: 5px;
+  }
+}
+
+/* Screen size 320px and below */
+@media (max-width: 320px) {
+  .sidebar.closed {
+    width: 58px;
+  }
+
+  .sidebar-content ul li {
+    font-size: 9px;
+    padding: 4px;
+  }
+
+  .sidebar-content .icon {
+    font-size: 16px;
+  }
 }

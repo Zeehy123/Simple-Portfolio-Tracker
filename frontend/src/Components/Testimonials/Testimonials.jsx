@@ -1,7 +1,7 @@
 import React from "react";
 import "./Testimonials.css";
 
-const features = [
+const testimonial = [
   {
     title: "Add, edit, and manage your stock holdings effortlessly.",
     icon: "📋",
@@ -22,13 +22,13 @@ const features = [
 
 const Testimonials = () => {
   return (
-    <section className="features">
+    <section className="testimonials">
       <h2>Experience the power of dynamic portfolio tracking today</h2>
-      <div className="features-list">
-        {features.map((feature, index) => (
-          <div key={index} className="feature">
-            <span className="feature-icon">{feature.icon}</span>
-            <p>{feature.title}</p>
+      <div className="testimonial-list">
+        {testimonial.map((testimonial, index) => (
+          <div key={index} className="testimonial">
+            <span className="testimonial-icon">{testimonial.icon}</span>
+            <p>{testimonial.title}</p>
           </div>
         ))}
       </div>

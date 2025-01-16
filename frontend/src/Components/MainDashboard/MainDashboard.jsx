@@ -1,8 +1,25 @@
 import React from "react";
 import "./MainDashboard.css";
 import PortfolioBarChart from "../Pages/PortfolioBarChart";
+import StockTable from "../Pages/StockTable";
 
 const MainDashboard = () => {
+  const stockData = [
+    {
+      name: "Apple Inc",
+      priceChange: 36.82,
+      percentageChange: 24.17,
+      currentPrice: 130.25,
+      ticker: "AAPL",
+    },
+    {
+      name: "Microsoft",
+      priceChange: 74.4,
+      percentageChange: 24.0,
+      currentPrice: 310.0,
+      ticker: "MSFT",
+    },
+  ];
   return (
     <div className="main-dashboard">
       <div className="dashboard-cards">
@@ -23,32 +40,12 @@ const MainDashboard = () => {
         </div>
       </div>
       <div className="portfolio-section">
-        <PortfolioBarChart />
+        <div className="chart">
+          <h2>Portfolio Distribution</h2>
+          <PortfolioBarChart />
+        </div>
         <div className="table">
-          <table>
-            <thead>
-              <tr>
-                <th>Stock Symbol</th>
-                <th>Price Change</th>
-                <th>Percentage Change</th>
-                <th>Current Price</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>AAPL</td>
-                <td>$36.82</td>
-                <td>+24.17%</td>
-                <td>$130.25</td>
-              </tr>
-              <tr>
-                <td>MSFT</td>
-                <td>$74.40</td>
-                <td>+24.00%</td>
-                <td>$310.00</td>
-              </tr>
-            </tbody>
-          </table>
+          <StockTable data={stockData} />
         </div>
       </div>
     </div>

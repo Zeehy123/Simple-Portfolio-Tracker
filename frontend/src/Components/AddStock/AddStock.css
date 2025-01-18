@@ -46,3 +46,86 @@
 .create-button:hover {
   background-color: #555;
 }
+
+@media screen and (max-width: 1440px) {
+  .add-stock-form {
+    width: 350px;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .add-stock-form {
+    width: 300px;
+  }
+  .form-group input {
+    padding: 7px;
+  }
+}
+
+@media screen and (max-width: 780px) {
+  .add-stock-form {
+    width: 280px;
+    padding: 15px;
+  }
+  .create-button {
+    font-size: 14px;
+    padding: 8px;
+  }
+}
+
+@media screen and (max-width: 520px) {
+  .add-stock-form {
+    width: 250px;
+    margin-left: 10px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .add-stock-form {
+    width: 220px;
+    padding: 10px;
+  }
+  .create-button {
+    font-size: 13px;
+    padding: 7px;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .add-stock-form {
+    width: 200px;
+  }
+  .form-group label {
+    font-size: 12px;
+  }
+  .form-group input {
+    font-size: 12px;
+  }
+}
+
+@media screen and (max-width: 380px) {
+  .add-stock-form {
+    width: 180px;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .add-stock-form {
+    width: 160px;
+    padding: 5px;
+  }
+  .add-stock-form h2 {
+    font-size: 15px;
+  }
+  .form-group label {
+    font-size: 10px;
+  }
+  .form-group input {
+    font-size: 10px;
+    padding: 5px;
+  }
+  .create-button {
+    font-size: 12px;
+    padding: 5px;
+  }
+}

@@ -75,6 +75,11 @@
     max-width: 200px;
   }
 }
+@media (max-width: 520px) {
+  .search-bar {
+    display: none;
+  }
+}
 
 /* Screen size 425px and below */
 @media (max-width: 425px) {
@@ -83,10 +88,6 @@
     align-items: flex-start;
     height: auto;
     padding: 10px;
-    width: 90%;
-  }
-  .search-bar {
-    display: none; /* Hide search bar on small screens */
   }
 
   .icons {
@@ -99,9 +100,7 @@
   .icon1 {
     font-size: 1rem;
   }
-  .header {
-    width: 91%;
-  }
+
   .menu-icon {
     font-size: 1.3rem;
   }

@@ -1,0 +1,129 @@
+.portfolio-container {
+  padding: 20px;
+  font-family: Arial, sans-serif;
+  background-color: #f5f7fa;
+  /* max-width: 1200px; */
+}
+
+.portfolio-title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  /* text-align: center; */
+  color: #333;
+}
+
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 50px;
+  align-items: start;
+}
+
+.metrics-card {
+  padding: 20px;
+  color: white;
+  background-color: #272b3b;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.metrics-card1 {
+  color: white;
+  background-color: #272b3b;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  padding: 30px;
+}
+.metrics-card1 h3 {
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+.metrics-card1 p {
+  background-color: white;
+  color: black;
+  padding: 10px;
+  border-radius: 5px;
+}
+.metrics-card2 {
+  background-color: #a8dce7;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  padding: 20px;
+}
+.metrics2-content {
+  display: flex;
+  flex-direction: row;
+}
+.metrics-highlight2 {
+  background-color: white;
+  border-radius: 3px;
+  padding: 25px;
+}
+.metrics-value2 {
+  border-radius: 3px;
+  background-color: #272b3b;
+  padding: 25px;
+  color: white;
+}
+.metrics-card3 {
+  background-color: #272b3b;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  padding: 15px;
+  color: white;
+}
+.metrics3-content {
+  display: flex;
+  flex-direction: column;
+  width: 120px;
+  margin-left: 30px;
+}
+.metrics-highlight3 {
+  background-color: #a8dce7;
+  border-radius: 3px;
+  padding: 5px;
+  color: black;
+  margin: 0;
+}
+.metrics-value3 {
+  background-color: white;
+  margin: 0;
+  border-radius: 3px;
+  padding: 5px;
+  color: black;
+}
+.metrics-card4 {
+  background-color: #a8dce7;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  padding: 15px;
+  color: black;
+}
+.metrics-value4 {
+  background-color: white;
+  padding: 15px;
+  width: 80px;
+  border-radius: 5px;
+  margin-left: 35px;
+}
+.metrics-highlight {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.metrics-subtext {
+  font-size: 14px;
+  color: #b0bec5;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+}

@@ -24,12 +24,12 @@ const MainDashboard = () => {
     <div className="main-dashboard">
       <div className="dashboard-cards">
         <div className="card1">
-          Total Portfolio Value:
+          <h1>Total Portfolio Value:</h1>
           <h2>$1956.00</h2>
           <span>See statistics</span>
         </div>
         <div className="card2">
-          Performance Percentage(%)
+          <h1>Performance Percentage(%)</h1>
           <h2>150%</h2>
           <span>25% decrease compared to last month</span>
         </div>

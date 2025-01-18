@@ -9,7 +9,7 @@ import { AiOutlineStock } from "react-icons/ai"; // Stocks icon
 import { BsChevronDown, BsChevronUp } from "react-icons/bs"; // Dropdown arrows
 import "./Sidebar.css";
 
-const Sidebar = ({ isOpen }) => {
+const Sidebar = ({ isOpen, setActivePage }) => {
   const [isStocksOpen, setIsStocksOpen] = useState(false); // Dropdown state
 
   const toggleStocksDropdown = () => {
@@ -22,7 +22,7 @@ const Sidebar = ({ isOpen }) => {
       <div className="sidebar-content">
         <ul>
           {/* Dashboard */}
-          <li>
+          <li onClick={() => setActivePage("dashboard")}>
             <FaTachometerAlt className="icon" />
             {isOpen && <span>Dashboard</span>}
           </li>
@@ -40,11 +40,11 @@ const Sidebar = ({ isOpen }) => {
           </div>
           {isOpen && isStocksOpen && (
             <ul className="dropdown">
-              <li>
+              <li onClick={() => setActivePage("addStock")}>
                 <FaPlusSquare className="icon" />
                 <span>Add Stock</span>
               </li>
-              <li>
+              <li onClick={() => setActivePage("stockHolding")}>
                 <FaChartLine className="icon" />
                 <span>Stock Holdings</span>
               </li>
@@ -52,13 +52,13 @@ const Sidebar = ({ isOpen }) => {
           )}
 
           {/* Portfolio */}
-          <li>
+          <li onClick={() => setActivePage("portfolioMetrics")}>
             <FaChartLine className="icon" />
             {isOpen && <span>Portfolio</span>}
           </li>
 
           {/* Account */}
-          <li>
+          <li onClick={() => setActivePage("profile")}>
             <FaUser className="icon" />
             {isOpen && <span>Account</span>}
           </li>

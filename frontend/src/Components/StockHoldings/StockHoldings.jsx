@@ -1,61 +1,87 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import axios from "../axiosInstance"; // Replace with your axios setup
 import "./StockHolding.css";
 
 const StockHolding = () => {
-  const [stocks, setStocks] = useState([
-    {
-      id: 1,
-      name: "Apple Inc",
-      ticker: "$36.82",
-      quantity: "+24.17%",
-      buyPrice: "$130.25",
-      currentPrice: "AAPL",
-    },
-    {
-      id: 2,
-      name: "Microsoft",
-      ticker: "$74.40",
-      quantity: "+24.00%",
-      buyPrice: "$310.00",
-      currentPrice: "MSFT",
-    },
-    // Add more stock data here...
-  ]);
-
+  const [stocks, setStocks] = useState([]);
   const [editingId, setEditingId] = useState(null);
   const [editData, setEditData] = useState({});
+  const [error, setError] = useState(null);
 
-  //  edit button click
+  // Fetch stocks from the API
+  useEffect(() => {
+    const fetchStocks = async () => {
+      try {
+        const accessToken = localStorage.getItem("accessToken");
+        const response = await axios.get("http://127.0.0.1:8000/api/stocks/", {
+          headers: {
+            Authorization: `Bearer ${accessToken}`,
+          },
+        });
+        setStocks(response.data); // Set the fetched stock data
+      } catch (err) {
+        console.error("Error fetching stocks:", err);
+        setError("Failed to load stock data. Please try again.");
+      }
+    };
+
+    fetchStocks();
+  }, []);
+
   const handleEdit = (id) => {
     const stockToEdit = stocks.find((stock) => stock.id === id);
     setEditingId(id);
     setEditData(stockToEdit);
   };
 
-  // delete button click
-  const handleDelete = (id) => {
-    setStocks(stocks.filter((stock) => stock.id !== id));
+  const handleDelete = async (id) => {
+    try {
+      const accessToken = localStorage.getItem("accessToken");
+      await axios.delete(`http://127.0.0.1:8000/api/stocks/${id}/`, {
+        headers: {
+          Authorization: `Bearer ${accessToken}`,
+        },
+      });
+      setStocks(stocks.filter((stock) => stock.id !== id)); // Update local state
+    } catch (err) {
+      console.error("Error deleting stock:", err);
+      setError("Failed to delete stock. Please try again.");
+    }
   };
 
-  // input change in the edit form
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setEditData({ ...editData, [name]: value });
   };
 
-  //  save button click after editing
-  const handleSave = () => {
-    setStocks(
-      stocks.map((stock) =>
-        stock.id === editingId ? { ...stock, ...editData } : stock
-      )
-    );
-    setEditingId(null);
+  const handleSave = async () => {
+    try {
+      const accessToken = localStorage.getItem("accessToken");
+      await axios.put(
+        `http://127.0.0.1:8000/api/stocks/${editingId}/`,
+        editData,
+        {
+          headers: {
+            Authorization: `Bearer ${accessToken}`,
+          },
+        }
+      );
+      setStocks(
+        stocks.map((stock) =>
+          stock.id === editingId ? { ...stock, ...editData } : stock
+        )
+      );
+      setEditingId(null);
+    } catch (err) {
+      console.error("Error updating stock:", err);
+      setError("Failed to save changes. Please try again.");
+    }
   };
 
   return (
     <div className="stock-table-container">
       <h1 className="stock-table-title">Stock Holding Table</h1>
+      {error && <p style={{ color: "red" }}>{error}</p>}
       <table className="stock-table">
         <thead>
           <tr>
@@ -89,7 +115,7 @@ const StockHolding = () => {
                 </td>
                 <td>
                   <input
-                    type="text"
+                    type="number"
                     name="quantity"
                     value={editData.quantity}
                     onChange={handleInputChange}
@@ -97,17 +123,17 @@ const StockHolding = () => {
                 </td>
                 <td>
                   <input
-                    type="text"
-                    name="buyPrice"
-                    value={editData.buyPrice}
+                    type="number"
+                    name="buy_price"
+                    value={editData.buy_price}
                     onChange={handleInputChange}
                   />
                 </td>
                 <td>
                   <input
                     type="text"
-                    name="currentPrice"
-                    value={editData.currentPrice}
+                    name="current_price"
+                    value={editData.current_price}
                     onChange={handleInputChange}
                   />
                 </td>
@@ -120,8 +146,8 @@ const StockHolding = () => {
                 <td>{stock.name}</td>
                 <td>{stock.ticker}</td>
                 <td>{stock.quantity}</td>
-                <td>{stock.buyPrice}</td>
-                <td>{stock.currentPrice}</td>
+                <td>${stock.buy_price.toFixed(2)}</td>
+                <td>${stock.current_price.toFixed(2)}</td>
                 <td>
                   <button
                     className="stock-btn"

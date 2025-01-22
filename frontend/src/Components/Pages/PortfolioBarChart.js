@@ -1,8 +1,39 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
+import axios from "axios";
 import Chart from "chart.js/auto";
 
 const PortfolioBarChart = () => {
   const chartRef = useRef(null);
+  const [chartData, setChartData] = useState({
+    labels: [],
+    data: [],
+  });
+
+  useEffect(() => {
+    const fetchChartData = async () => {
+      try {
+        const accessToken = localStorage.getItem("accessToken");
+        const response = await axios.get(
+          "http://127.0.0.1:8000/api/bar-chart-dashboard/",
+          {
+            headers: {
+              Authorization: `Bearer ${accessToken}`,
+            },
+          }
+        );
+
+        const { labels, data } = response.data;
+        setChartData({
+          labels,
+          data: data.map((stock) => stock.total_value),
+        });
+      } catch (err) {
+        console.error("Error fetching chart data:", err);
+      }
+    };
+
+    fetchChartData();
+  }, []);
 
   useEffect(() => {
     const chartCanvas = chartRef.current?.getContext("2d");
@@ -12,11 +43,11 @@ const PortfolioBarChart = () => {
       chartInstance = new Chart(chartCanvas, {
         type: "bar",
         data: {
-          labels: ["Stock A", "Stock B", "Stock C", "Stock D"], // X-axis labels
+          labels: chartData.labels,
           datasets: [
             {
               label: "Risk Level",
-              data: [2500, 2000, 1500, 1000], // Y-axis data
+              data: chartData.data,
               backgroundColor: "rgba(16, 29, 37, 0.92)",
               borderColor: "rgba(54, 162, 235, 1)",
             },
@@ -53,7 +84,7 @@ const PortfolioBarChart = () => {
         chartInstance.destroy();
       }
     };
-  }, []);
+  }, [chartData]);
 
   return (
     <div style={{ width: "90%", height: "250px" }}>

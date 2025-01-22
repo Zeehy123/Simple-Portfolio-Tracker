@@ -7,7 +7,7 @@ class Stock(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)  # Link stocks directly to a user
     name = models.CharField(max_length=255)
     quantity = models.PositiveIntegerField(default=1)
-    ticker = models.CharField(max_length=10, unique=True)
+    ticker = models.CharField(max_length=10)
     buy_price = models.DecimalField(max_digits=10, decimal_places=2)
 
     def __str__(self):
@@ -18,11 +18,11 @@ class Stock(models.Model):
             stock_data = yf.Ticker(self.ticker)
             stock_info = stock_data.history(period="1d")
             if stock_info.empty:
-                return None  # Return None if no data is found
-            return stock_info['Close'].iloc[0]  # Get the latest closing price
+                return None  
+            return stock_info['Close'].iloc[0]  
         except Exception as e:
             print(f"Error fetching data for {self.ticker}: {e}")
-            return None  # Return None in case of error
+            return None  
 
     @property
     def value(self):

@@ -10,14 +10,14 @@ from django.core.exceptions import ValidationError
 
 
 class CustomUserSerializer(serializers.ModelSerializer):
-    id = serializers.IntegerField(read_only=True)  # Assuming public_id is the user ID
+    id = serializers.IntegerField(read_only=True) 
 
     class Meta:
         model = CustomUser
         fields = ['id', 'username', 'email','last_name','first_name']
-        
-from rest_framework import serializers
-from django.contrib.auth import get_user_model
+    extra_kwargs = {
+            'password': {'write_only': True},  # Password should not be readable
+        }
 
 CustomUser = get_user_model()
 
@@ -45,11 +45,11 @@ class RegisterationSerializer(serializers.Serializer):
         return data
 
     def create(self, validated_data):
-        # Create user with validated data
+  
         user = CustomUser.objects.create_user(
             username=validated_data['username'],
             email=validated_data['email'],
-            password=validated_data['password1'],  # create_user handles password hashing
+            password=validated_data['password1'], 
             first_name=validated_data['first_name'],
             last_name=validated_data['last_name'],
         )
@@ -58,12 +58,31 @@ class RegisterationSerializer(serializers.Serializer):
 
 User = get_user_model()
 
+# class LoginSerializer(TokenObtainPairSerializer):
+#     username_field = User.EMAIL_FIELD
+
+   
+#     def validate(self, attrs):
+#         data = {}
+#         email = attrs.get('email')
+#         password = attrs.get('password')
+
+#         user = CustomUser.objects.filter(email=email).first()
+
+#         if user and user.check_password(password):
+#             refresh = self.get_token(user)
+#             data['refresh'] = str(refresh)
+#             data['access'] = str(refresh.access_token)
+#             data['user'] = CustomUserSerializer(user).data
+#             return data
+#         else:
+#             raise ValidationError('Invalid email/password')
+
+#         return data
 class LoginSerializer(TokenObtainPairSerializer):
     username_field = User.EMAIL_FIELD
 
-   
     def validate(self, attrs):
-        data = {}
         email = attrs.get('email')
         password = attrs.get('password')
 
@@ -71,14 +90,16 @@ class LoginSerializer(TokenObtainPairSerializer):
 
         if user and user.check_password(password):
             refresh = self.get_token(user)
-            data['refresh'] = str(refresh)
-            data['access'] = str(refresh.access_token)
-            data['user'] = CustomUserSerializer(user).data
-            return data
+            return {
+                "refresh": str(refresh),
+                "access": str(refresh.access_token),
+                "user": CustomUserSerializer(user).data,
+            }
         else:
-            raise ValidationError('Invalid email/password')
+            raise ValidationError(
+                {"error": "Invalid email or password."}, code="authorization"
+            )
 
-        return data
 
 class ChangePasswordSerializer(serializers.Serializer):
     current_password = serializers.CharField(required=True)

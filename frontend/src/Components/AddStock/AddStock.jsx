@@ -1,13 +1,15 @@
 import React, { useState } from "react";
+import axios from "../axiosInstance";
 import "./AddStock.css";
-
 const AddStock = () => {
   const [formData, setFormData] = useState({
-    stockName: "",
-    stockTicket: "",
+    name: "",
+    ticker: "",
     quantity: "",
-    buyPrice: "",
+    buy_price: "",
   });
+  const [error, setError] = useState(null);
+  const [success, setSuccess] = useState(false);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -16,20 +18,49 @@ const AddStock = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("Form Data Submitted: ", formData);
-    // Add your API call or functionality here
+
+    const dataToSend = {
+      name: formData.name,
+      ticker: formData.ticker,
+      quantity: formData.quantity,
+      buy_price: formData.buy_price,
+    };
+
+    axios
+      .post("http://127.0.0.1:8000/api/stocks/", dataToSend, {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      })
+      .then((response) => {
+        console.log("Stock added:", response.data);
+        setFormData({
+          name: "",
+          ticker: "",
+          quantity: "",
+          buyPrice: "",
+        });
+      })
+      .catch((error) => {
+        console.error(
+          "Error adding stock:",
+          error.response?.data || error.message
+        );
+      });
   };
 
   return (
     <div className="add-stock-form">
       <h2>Add New Stock</h2>
+      {error && <p style={{ color: "red" }}>{error}</p>}
+      {success && <p style={{ color: "green" }}>Stock added successfully!</p>}
       <form onSubmit={handleSubmit}>
         <div className="form-group">
           <label>Stock Name:</label>
           <input
             type="text"
-            name="stockName"
-            value={formData.stockName}
+            name="name"
+            value={formData.name}
             onChange={handleChange}
             required
           />
@@ -38,8 +69,8 @@ const AddStock = () => {
           <label>Stock Ticket:</label>
           <input
             type="text"
-            name="stockTicket"
-            value={formData.stockTicket}
+            name="ticker"
+            value={formData.ticker}
             onChange={handleChange}
             required
           />
@@ -58,8 +89,8 @@ const AddStock = () => {
           <label>Buy Price:</label>
           <input
             type="number"
-            name="buyPrice"
-            value={formData.buyPrice}
+            name="buy_price"
+            value={formData.buy_price}
             onChange={handleChange}
             required
           />

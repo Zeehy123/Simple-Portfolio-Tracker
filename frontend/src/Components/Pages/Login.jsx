@@ -1,34 +1,60 @@
 import React, { useState } from "react";
+import axios from "../axiosInstance";
 import "./Login.css";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const [passwordVisible, setPasswordVisible] = useState(false);
-  const [isVisible, setIsVisible] = useState(true);
+  const [errorMessage, setErrorMessage] = useState("");
   const navigate = useNavigate();
 
   const togglePasswordVisibility = () => {
     setPasswordVisible(!passwordVisible);
   };
-  const closeModal = () => {
-    setIsVisible(false);
-    navigate("/");
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await axios.post(
+        "http://127.0.0.1:8000/api/auth/login/",
+        { email, password }
+      );
+      const { access, refresh, user } = response.data;
+
+      // Store tokens and navigate to dashboard
+      localStorage.setItem("accessToken", access);
+      localStorage.setItem("refreshToken", refresh);
+      localStorage.setItem("user", JSON.stringify(user));
+      navigate("/dashboard");
+    } catch (error) {
+      if (error.response) {
+        // Backend error
+        setErrorMessage(error.response.data?.error || "Login failed.");
+      } else {
+        // Network or other error
+        setErrorMessage("An unexpected error occurred. Please try again.");
+      }
+    }
   };
-  if (!isVisible) {
-    return null;
-  }
+
   return (
     <div className="login-container">
       <div className="login-box">
-        <button className="close-button" onClick={closeModal}>
-          ✖
-        </button>
         <h2>Log In</h2>
-
-        <form className="login-form">
+        {errorMessage && <p className="error-message">{errorMessage}</p>}
+        <form className="login-form" onSubmit={handleSubmit}>
           <div className="input-group">
             <label htmlFor="email">Email</label>
-            <input type="email" id="email" placeholder="Email" required />
+            <input
+              type="email"
+              id="email"
+              placeholder="Email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+            />
           </div>
           <div className="input-group">
             <label htmlFor="password">Password</label>
@@ -37,6 +63,8 @@ const Login = () => {
                 type={passwordVisible ? "text" : "password"}
                 id="password"
                 placeholder="Password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
                 required
               />
               <button
@@ -48,19 +76,10 @@ const Login = () => {
               </button>
             </div>
           </div>
-          <div className="remember-me">
-            <input type="checkbox" id="remember" />
-            <label htmlFor="remember">Remember me</label>
-          </div>
           <button type="submit" className="sign-in-button">
             Sign In
           </button>
         </form>
-        <p className="policy">
-          By pressing <strong>sign up</strong>, you entitle us to contact you
-          for marketing purposes. For details, view our{" "}
-          <Link>Marketing and Communication Policy Statement</Link>.
-        </p>
       </div>
     </div>
   );

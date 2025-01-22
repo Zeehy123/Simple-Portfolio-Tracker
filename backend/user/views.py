@@ -34,15 +34,26 @@ class RegisterationViewSet(viewsets.ModelViewSet):
 class LoginViewSet(viewsets.ModelViewSet):
     serializer_class = LoginSerializer
     permission_classes = (AllowAny,)
-    http_method_names = ('post')
-    
+    http_method_names = ['post']
+
     def create(self, request, *args, **kwargs):
-        serializer=self.get_serializer(data=request.data)
+        serializer = self.get_serializer(data=request.data)
         try:
             serializer.is_valid(raise_exception=True)
+            # Return valid response if login succeeds
+            return Response(serializer.validated_data, status=status.HTTP_200_OK)
         except TokenError as e:
             raise InvalidToken(e.args[0])
-        return Response(serializer.validated_data, status=status.HTTP_200_OK)
+        except ValidationError as e:
+            # Return a consistent error response
+            return Response(
+                {"error": str(e.detail)},
+                status=status.HTTP_400_BAD_REQUEST
+            )
+
+      
+    
+    
 class RefreshViewset(viewsets.ViewSet,TokenRefreshView):
     http_method_names = ('post')
     def create(self, request, *args, **kwargs):

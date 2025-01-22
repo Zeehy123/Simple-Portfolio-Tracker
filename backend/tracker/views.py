@@ -69,10 +69,10 @@ class PortfolioValueView(APIView):
     permission_classes = [IsAuthenticated]
 
     def get(self, request):
-        # Get all stocks for the authenticated user
+    
         stocks = Stock.objects.filter(user=request.user)
         
-        # Calculate the total portfolio value by summing up each stock's value
+
         total_value = sum(stock.value for stock in stocks)
         
         return Response({

@@ -82,22 +82,22 @@ WSGI_APPLICATION = 'portfolio_tracker.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql',
-#         'NAME': 'portfolio_tracker_db',          # Your database name
-#         'USER': 'postgres',              # Your database user
-#         'PASSWORD': 'admin123',      # Your database user's password
-#         'HOST': 'localhost',           # Database host, use IP or hostname
-#         'PORT': '5432',                # Default PostgreSQL port
-#     }
-# }
-
 DATABASES = {
-    'default': dj_database_url.config(
-        default=os.getenv('DATABASE_URL', 'postgres://user:password@localhost:5432/mydatabase')
-    )
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'portfolio_tracker_db',          # Your database name
+        'USER': 'postgres',              # Your database user
+        'PASSWORD': 'admin123',      # Your database user's password
+        'HOST': 'localhost',           # Database host, use IP or hostname
+        'PORT': '5432',                # Default PostgreSQL port
+    }
 }
+
+# DATABASES = {
+#     'default': dj_database_url.config(
+#         default=os.getenv('DATABASE_URL', 'postgres://user:password@localhost:5432/mydatabase')
+#     )
+# }
 
 
 # Password validation

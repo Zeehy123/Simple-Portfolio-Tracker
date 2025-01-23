@@ -23,17 +23,14 @@ const SignUp = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post(
-        "http://127.0.0.1:8000/api/auth/register/",
-        {
-          first_name: formData.firstName,
-          last_name: formData.lastName,
-          username: formData.username,
-          email: formData.email,
-          password1: formData.password1,
-          password2: formData.password2,
-        }
-      );
+      const response = await axios.post("/api/auth/register/", {
+        first_name: formData.firstName,
+        last_name: formData.lastName,
+        username: formData.username,
+        email: formData.email,
+        password1: formData.password1,
+        password2: formData.password2,
+      });
       setSuccessMessage(response.data.message || "Registration successful!");
       setErrorMessage("");
       setFormData({

@@ -20,33 +20,29 @@ const PortfolioMetrics = () => {
         setLoading(true);
 
         // Fetch Total Portfolio Value
-        const totalValueRes = await axios.get(
-          "http://127.0.0.1:8000/api/portfolio/value/"
-        );
+        const totalValueRes = await axios.get("/api/portfolio/value/");
         const totalValue = totalValueRes.data.total_value;
 
         // Fetch Daily Gain/Loss
         const dailyGainLossRes = await axios.get(
-          "http://127.0.0.1:8000/api/stocks/daily-gain-loss/"
+          "/api/stocks/daily-gain-loss/"
         );
         const dailyGainLoss = dailyGainLossRes.data;
 
         // Fetch Best Performing Stock
         const bestPerformingRes = await axios.get(
-          "http://127.0.0.1:8000/api/stocks/best-performing/"
+          "/api/stocks/best-performing/"
         );
         const bestPerforming = bestPerformingRes.data;
 
         // Fetch Worst Performing Stock
         const worstPerformingRes = await axios.get(
-          "http://127.0.0.1:8000/api/stocks/worst-performing"
+          "/api/stocks/worst-performing"
         );
         const worstPerforming = worstPerformingRes.data;
 
         // Fetch Top Three Stocks
-        const topThreeRes = await axios.get(
-          "http://127.0.0.1:8000/api/stocks/top-three-stocks"
-        );
+        const topThreeRes = await axios.get("/api/stocks/top-three-stocks");
         const topThree = topThreeRes.data;
 
         // Update state

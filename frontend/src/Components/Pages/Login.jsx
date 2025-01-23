@@ -17,23 +17,20 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post(
-        "http://127.0.0.1:8000/api/auth/login/",
-        { email, password }
-      );
+      const response = await axios.post("/api/auth/login/", {
+        email,
+        password,
+      });
       const { access, refresh, user } = response.data;
 
-      // Store tokens and navigate to dashboard
       localStorage.setItem("accessToken", access);
       localStorage.setItem("refreshToken", refresh);
       localStorage.setItem("user", JSON.stringify(user));
       navigate("/dashboard");
     } catch (error) {
       if (error.response) {
-        // Backend error
         setErrorMessage(error.response.data?.error || "Login failed.");
       } else {
-        // Network or other error
         setErrorMessage("An unexpected error occurred. Please try again.");
       }
     }

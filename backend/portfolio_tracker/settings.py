@@ -82,21 +82,21 @@ WSGI_APPLICATION = 'portfolio_tracker.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql',
-#         'NAME': 'portfolio_tracker_db',         
-#         'USER': 'postgres',              
-#         'PASSWORD': 'admin123',      
-#         'HOST': 'localhost',         
-#         'PORT': '5432',               
-#     }
-# }
-
-
 DATABASES = {
-    'default': dj_database_url.parse('postgresql://am_stock_user:Z7WPRFy1x5Tv2U4BnAQj7U8VXxYL5o7j@dpg-cu9bk9pu0jms73fdcrrg-a.oregon-postgres.render.com/am_stock')
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'portfolio_tracker_db',         
+        'USER': 'postgres',              
+        'PASSWORD': 'admin123',      
+        'HOST': 'localhost',         
+        'PORT': '5432',               
+    }
 }
+
+
+# DATABASES = {
+#     'default': dj_database_url.parse('postgresql://am_stock_user:Z7WPRFy1x5Tv2U4BnAQj7U8VXxYL5o7j@dpg-cu9bk9pu0jms73fdcrrg-a.oregon-postgres.render.com/am_stock')
+# }
 
 
 # Password validation

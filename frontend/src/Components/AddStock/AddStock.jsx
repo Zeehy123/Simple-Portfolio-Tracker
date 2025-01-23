@@ -27,7 +27,7 @@ const AddStock = () => {
     };
 
     axios
-      .post("http://127.0.0.1:8000/api/stocks/", dataToSend, {
+      .post("/api/stocks/", dataToSend, {
         headers: {
           "Content-Type": "application/json",
         },

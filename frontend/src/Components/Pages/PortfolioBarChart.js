@@ -13,14 +13,11 @@ const PortfolioBarChart = () => {
     const fetchChartData = async () => {
       try {
         const accessToken = localStorage.getItem("accessToken");
-        const response = await axios.get(
-          "http://127.0.0.1:8000/api/bar-chart-dashboard/",
-          {
-            headers: {
-              Authorization: `Bearer ${accessToken}`,
-            },
-          }
-        );
+        const response = await axios.get("/api/bar-chart-dashboard/", {
+          headers: {
+            Authorization: `Bearer ${accessToken}`,
+          },
+        });
 
         const { labels, data } = response.data;
         setChartData({

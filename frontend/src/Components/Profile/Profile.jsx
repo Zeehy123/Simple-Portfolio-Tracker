@@ -24,9 +24,7 @@ const Profile = () => {
     const fetchProfile = async () => {
       try {
         setLoading(true);
-        const response = await axios.get(
-          "http://127.0.0.1:8000/api/user/details/"
-        );
+        const response = await axios.get("/api/user/details/");
         setProfileData(response.data);
         setLoading(false);
       } catch (err) {
@@ -50,7 +48,7 @@ const Profile = () => {
     e.preventDefault();
     try {
       const response = await axios.put(
-        "http://127.0.0.1:8000/api/user/details/update/",
+        "/api/user/details/update/",
         profileData
       );
       setSuccessMessage(
@@ -64,10 +62,7 @@ const Profile = () => {
   const handlePasswordChange = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post(
-        "http://127.0.0.1:8000/api/change-password/",
-        passwordData
-      );
+      const response = await axios.post("/api/change-password/", passwordData);
       setSuccessMessage(response.data.message);
       setShowChangePassword(false);
     } catch (err) {
@@ -78,10 +73,7 @@ const Profile = () => {
   const handleEmailChange = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.put(
-        "http://127.0.0.1:8000/api/change-email/",
-        emailData
-      );
+      const response = await axios.put("/api/change-email/", emailData);
       setSuccessMessage(response.data.message);
       setShowChangeEmail(false);
     } catch (err) {

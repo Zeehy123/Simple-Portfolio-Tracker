@@ -16,19 +16,16 @@ const MainDashboard = () => {
         const accessToken = localStorage.getItem("accessToken");
 
         // Fetch Portfolio Value
-        const portfolioResponse = await axios.get(
-          "http://127.0.0.1:8000/api/portfolio/value/",
-          {
-            headers: {
-              Authorization: `Bearer ${accessToken}`,
-            },
-          }
-        );
+        const portfolioResponse = await axios.get("/api/portfolio/value/", {
+          headers: {
+            Authorization: `Bearer ${accessToken}`,
+          },
+        });
         setPortfolioValue(portfolioResponse.data.total_value);
 
         // Fetch Performance Percentage
         const performanceResponse = await axios.get(
-          "http://127.0.0.1:8000/api/portfolio-performance/",
+          "/api/portfolio-performance/",
           {
             headers: {
               Authorization: `Bearer ${accessToken}`,
@@ -42,7 +39,7 @@ const MainDashboard = () => {
 
         // Fetch Top Performing Stock
         const topStockResponse = await axios.get(
-          "http://127.0.0.1:8000/api/top-performing-stocks/",
+          "/api/top-performing-stocks/",
           {
             headers: {
               Authorization: `Bearer ${accessToken}`,
@@ -52,14 +49,11 @@ const MainDashboard = () => {
         setTopPerformingStock(topStockResponse.data);
 
         //fetching table response
-        const Tableresponse = await axios.get(
-          "http://127.0.0.1:8000/api/table/stocks/",
-          {
-            headers: {
-              Authorization: `Bearer ${accessToken}`,
-            },
-          }
-        );
+        const Tableresponse = await axios.get("/api/table/stocks/", {
+          headers: {
+            Authorization: `Bearer ${accessToken}`,
+          },
+        });
 
         console.log("Stock Data:", Tableresponse.data);
         setStockData(Tableresponse.data);

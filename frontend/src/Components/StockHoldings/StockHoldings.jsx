@@ -13,7 +13,7 @@ const StockHolding = () => {
     const fetchStocks = async () => {
       try {
         const accessToken = localStorage.getItem("accessToken");
-        const response = await axios.get("http://127.0.0.1:8000/api/stocks/", {
+        const response = await axios.get("/api/stocks/", {
           headers: {
             Authorization: `Bearer ${accessToken}`,
           },
@@ -37,7 +37,7 @@ const StockHolding = () => {
   const handleDelete = async (id) => {
     try {
       const accessToken = localStorage.getItem("accessToken");
-      await axios.delete(`http://127.0.0.1:8000/api/stocks/${id}/`, {
+      await axios.delete(`/api/stocks/${id}/`, {
         headers: {
           Authorization: `Bearer ${accessToken}`,
         },
@@ -57,15 +57,11 @@ const StockHolding = () => {
   const handleSave = async () => {
     try {
       const accessToken = localStorage.getItem("accessToken");
-      await axios.put(
-        `http://127.0.0.1:8000/api/stocks/${editingId}/`,
-        editData,
-        {
-          headers: {
-            Authorization: `Bearer ${accessToken}`,
-          },
-        }
-      );
+      await axios.put(`/api/stocks/${editingId}/`, editData, {
+        headers: {
+          Authorization: `Bearer ${accessToken}`,
+        },
+      });
       setStocks(
         stocks.map((stock) =>
           stock.id === editingId ? { ...stock, ...editData } : stock

@@ -82,22 +82,21 @@ WSGI_APPLICATION = 'portfolio_tracker.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'portfolio_tracker_db',          # Your database name
-        'USER': 'postgres',              # Your database user
-        'PASSWORD': 'admin123',      # Your database user's password
-        'HOST': 'localhost',           # Database host, use IP or hostname
-        'PORT': '5432',                # Default PostgreSQL port
-    }
-}
-
 # DATABASES = {
-#     'default': dj_database_url.config(
-#         default=os.getenv('DATABASE_URL', 'postgres://user:password@localhost:5432/mydatabase')
-#     )
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'portfolio_tracker_db',         
+#         'USER': 'postgres',              
+#         'PASSWORD': 'admin123',      
+#         'HOST': 'localhost',         
+#         'PORT': '5432',               
+#     }
 # }
+
+
+DATABASES = {
+    'default': dj_database_url.parse('postgresql://am_stock_user:Z7WPRFy1x5Tv2U4BnAQj7U8VXxYL5o7j@dpg-cu9bk9pu0jms73fdcrrg-a.oregon-postgres.render.com/am_stock')
+}
 
 
 # Password validation
@@ -163,7 +162,7 @@ USE_TZ=False
 from datetime import timedelta
 
 SIMPLE_JWT = {
- 'ACCESS_TOKEN_LIFETIME': timedelta(hours=100),  # Example: Access token expires in 100 hours
+ 'ACCESS_TOKEN_LIFETIME': timedelta(hours=100),  
     'REFRESH_TOKEN_LIFETIME': timedelta(days=7),
 
 }
@@ -175,8 +174,6 @@ CORS_ALLOWED_ORIGINS = [
 ]
 
 
-# STATIC_URL = "static/"
-# STATIC_ROOT = os.path.join(BASE_DIR, "static")
 
 STATIC_URL = '/static/'
 STATIC_ROOT = BASE_DIR / 'staticfiles'

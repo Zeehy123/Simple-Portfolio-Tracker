@@ -83,7 +83,22 @@
 .sidebar.closed .dropdown {
   display: none;
 }
-
+.logout {
+  margin-top: 300px;
+}
+.btn-logout {
+  background-color: #272b3b;
+  margin-left: 40px;
+  border: none;
+  color: white;
+  cursor: pointer;
+  font-size: 15px;
+}
+.btn-logout:hover {
+  background-color: #a8dce7;
+  padding: 10px;
+  border-radius: 5px;
+}
 /* Responsive Styles */
 
 /* Screen size 1024px and below */

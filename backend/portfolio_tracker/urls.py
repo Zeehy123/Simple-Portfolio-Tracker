@@ -17,31 +17,32 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path,include
 from rest_framework.routers import DefaultRouter
-from user.views import  RegisterationViewSet,LoginViewSet,RefreshViewset, UserDetailsView,ChangePasswordView,ChangeEmailView
+from user.views import  RegisterationViewSet,LoginViewSet,LogoutView,RefreshViewset, UserDetailsView,ChangePasswordView,ChangeEmailView
 from tracker.views import StockListView,StockDetailView,PortfolioValueView,TopPortfolioValueView,PortfolioPerformanceView,TopPerformingStocksView,StockDataView,BarChartDataView,DailyGainLossView,WorstPerformingStockView,BestPerformingStockView,TopThreeStocksView
 router = DefaultRouter()
 router.register(r'auth/register', RegisterationViewSet,basename='auth-register')
 router.register(r'auth/login',LoginViewSet,basename='auth-login')
+router.register(r'auth/logout',LogoutView,basename='auth-logout')
 router.register(r'auth/refresh',RefreshViewset,basename='auth-refresh')
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', include((router.urls, "api"))),
-     path('api/stocks/', StockListView.as_view(), name='stock-list'),
-     path('api/stocks/<int:id>/', StockDetailView.as_view(), name='stock-detail'),
-     path('api/portfolio/value/', PortfolioValueView.as_view(), name='portfolio-value'),
-     path('api/top-portfolio/', TopPortfolioValueView.as_view(), name='top-portfolio-value'),
-     path('api/portfolio-performance/', PortfolioPerformanceView.as_view(), name='portfolio-performance'),
+    path('api/stocks/', StockListView.as_view(), name='stock-list'),
+    path('api/stocks/<int:id>/', StockDetailView.as_view(), name='stock-detail'),
+    path('api/portfolio/value/', PortfolioValueView.as_view(), name='portfolio-value'),
+    path('api/top-portfolio/', TopPortfolioValueView.as_view(), name='top-portfolio-value'),
+    path('api/portfolio-performance/', PortfolioPerformanceView.as_view(), name='portfolio-performance'),
     path('api/top-performing-stocks/', TopPerformingStocksView.as_view(), name='top-performing-stocks'),
     path('api/table/stocks/', StockDataView.as_view(), name='stock-data'),
     path('api/bar-chart-dashboard/', BarChartDataView.as_view(), name='bar-chart-data'),
-     path('api/stocks/daily-gain-loss/', DailyGainLossView.as_view(), name='daily-gain-loss'),
-     path('api/stocks/worst-performing', WorstPerformingStockView.as_view(), name='worst-performing-stocks'),
-      path('api/stocks/best-performing/', BestPerformingStockView.as_view(), name='best-performing-stock'),
-     path('api/stocks/top-three-stocks',TopThreeStocksView.as_view(), name='top-three-stocks'),
+    path('api/stocks/daily-gain-loss/', DailyGainLossView.as_view(), name='daily-gain-loss'),
+    path('api/stocks/worst-performing', WorstPerformingStockView.as_view(), name='worst-performing-stocks'),
+    path('api/stocks/best-performing/', BestPerformingStockView.as_view(), name='best-performing-stock'),
+    path('api/stocks/top-three-stocks',TopThreeStocksView.as_view(), name='top-three-stocks'),
 
 
-     path("api/user/details/", UserDetailsView.as_view({'get': 'list'}), name='user-details'),
-      path('api/user/details/update/', UserDetailsView.as_view({'put': 'update'}), name='update-user-details'),
+    path("api/user/details/", UserDetailsView.as_view({'get': 'list'}), name='user-details'),
+    path('api/user/details/update/', UserDetailsView.as_view({'put': 'update'}), name='update-user-details'),
     path('api/change-password/', ChangePasswordView.as_view(), name='change_password'),
     path('api/profile/change-email/', ChangeEmailView.as_view(), name='change_email'),
 ]

@@ -146,8 +146,8 @@ const StockHolding = () => {
                 <td>{stock.name}</td>
                 <td>{stock.ticker}</td>
                 <td>{stock.quantity}</td>
-                <td>${stock.buy_price.toFixed(2)}</td>
-                <td>${stock.current_price.toFixed(2)}</td>
+                <td>${stock.buy_price}</td>
+                <td>${stock.current_price}</td>
                 <td>
                   <button
                     className="stock-btn"

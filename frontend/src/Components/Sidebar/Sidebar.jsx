@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+
 import {
   FaTachometerAlt,
   FaChartLine,
@@ -8,14 +10,24 @@ import {
 import { AiOutlineStock } from "react-icons/ai"; // Stocks icon
 import { BsChevronDown, BsChevronUp } from "react-icons/bs"; // Dropdown arrows
 import "./Sidebar.css";
-
+// import axios from "../axiosInstance";
 const Sidebar = ({ isOpen, setActivePage }) => {
   const [isStocksOpen, setIsStocksOpen] = useState(false); // Dropdown state
 
   const toggleStocksDropdown = () => {
     setIsStocksOpen(!isStocksOpen); // Toggle the dropdown state
   };
+  const navigate = useNavigate();
 
+  const handleLogout = () => {
+    // Clear all user-related data from localStorage
+    localStorage.removeItem("accessToken");
+    localStorage.removeItem("refreshToken");
+    localStorage.removeItem("user");
+
+    // Redirect the user to the home page
+    navigate("/", { replace: true });
+  };
   return (
     <div className={`sidebar ${isOpen ? "open" : "closed"}`}>
       <div className="name">{isOpen && "am_stock"}</div>
@@ -63,6 +75,12 @@ const Sidebar = ({ isOpen, setActivePage }) => {
             {isOpen && <span>Account</span>}
           </li>
         </ul>
+        <div className="logout">
+          <hr></hr>
+          <button onClick={handleLogout} className="btn-logout">
+            Logout
+          </button>
+        </div>
       </div>
     </div>
   );

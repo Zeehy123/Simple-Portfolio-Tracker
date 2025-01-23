@@ -4,8 +4,8 @@ import "./Profile.css";
 
 const Profile = () => {
   const [profileData, setProfileData] = useState({
-    first_name: "",
-    surname: "",
+    firstName: "",
+    lastName: "",
     email: "",
     username: "",
   });
@@ -65,7 +65,7 @@ const Profile = () => {
     e.preventDefault();
     try {
       const response = await axios.post(
-        "http://127.0.0.1:8000/api//change-password/",
+        "http://127.0.0.1:8000/api/change-password/",
         passwordData
       );
       setSuccessMessage(response.data.message);
@@ -102,16 +102,16 @@ const Profile = () => {
             <input
               type="text"
               name="first_name"
-              value={profileData.first_name}
+              value={profileData.firstName}
               onChange={handleInputChange}
             />
           </div>
           <div className="form-group">
-            <label>Surname:</label>
+            <label>Last Name:</label>
             <input
               type="text"
               name="surname"
-              value={profileData.surname}
+              value={profileData.lastName}
               onChange={handleInputChange}
             />
           </div>

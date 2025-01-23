@@ -50,8 +50,20 @@ class LoginViewSet(viewsets.ModelViewSet):
                 {"error": str(e.detail)},
                 status=status.HTTP_400_BAD_REQUEST
             )
+class LogoutView(viewsets.ViewSet):
+    permission_classes = [IsAuthenticated]
 
-      
+    def create(self, request):
+        try:
+            # Blacklist the token
+            refresh_token = request.data.get("refresh_token")
+            token = RefreshToken(refresh_token)
+            token.blacklist()
+
+            return Response({"message": "Logged out successfully"}, status=200)
+        except Exception as e:
+            return Response({"error": "Failed to logout"}, status=400)
+
     
     
 class RefreshViewset(viewsets.ViewSet,TokenRefreshView):

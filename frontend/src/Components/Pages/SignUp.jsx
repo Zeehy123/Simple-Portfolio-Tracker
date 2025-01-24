@@ -57,92 +57,96 @@ const SignUp = () => {
   };
 
   const handleClose = () => {
-    navigate("/"); // Change "/" to the desired route
+    navigate("/");
   };
 
   return (
     <div className="signup-container">
-      <div className="signup-header">
-        <h1>Am_stock</h1>
-        <button className="close-button" onClick={handleClose}>
-          &times;
-        </button>
-      </div>
-      <div className="signup-form">
-        <h2>Sign Up</h2>
-        {errorMessage && <p className="error-message">{errorMessage}</p>}
-        {successMessage && <p className="success-message">{successMessage}</p>}
-        <form onSubmit={handleSubmit}>
-          <div className="form-row">
-            <div className="form-group">
-              <label htmlFor="firstName">First Name</label>
-              <input
-                type="text"
-                id="firstName"
-                placeholder="Enter your first name"
-                value={formData.firstName}
-                onChange={handleChange}
-              />
-            </div>
-            <div className="form-group">
-              <label htmlFor="lastName">Last Name</label>
-              <input
-                type="text"
-                id="lastName"
-                placeholder="Enter your last name"
-                value={formData.lastName}
-                onChange={handleChange}
-              />
-            </div>
-          </div>
-          <div className="form-row">
-            <div className="form-group">
-              <label htmlFor="username">Username</label>
-              <input
-                type="text"
-                id="username"
-                placeholder="Enter your username"
-                value={formData.username}
-                onChange={handleChange}
-              />
-            </div>
-            <div className="form-group">
-              <label htmlFor="email">Email Address</label>
-              <input
-                type="email"
-                id="email"
-                placeholder="Enter your email"
-                value={formData.email}
-                onChange={handleChange}
-              />
-            </div>
-          </div>
-          <div className="form-row">
-            <div className="form-group">
-              <label htmlFor="password1">Password</label>
-              <input
-                type="password"
-                id="password1"
-                placeholder="Enter your password"
-                value={formData.password1}
-                onChange={handleChange}
-              />
-            </div>
-            <div className="form-group">
-              <label htmlFor="password2">Re-enter your password</label>
-              <input
-                type="password"
-                id="password2"
-                placeholder="Re-enter your password"
-                value={formData.password2}
-                onChange={handleChange}
-              />
-            </div>
-          </div>
-          <button type="submit" className="signup-button">
-            Sign Up
+      <div className="signup-box">
+        <div className="signup-header">
+          <h1>Am_stock</h1>
+          <button className="close-button" onClick={handleClose}>
+            &times;
           </button>
-        </form>
+        </div>
+        <div className="signup-form">
+          <h2>Sign Up</h2>
+          {errorMessage && <p className="error-message">{errorMessage}</p>}
+          {successMessage && (
+            <p className="success-message">{successMessage}</p>
+          )}
+          <form onSubmit={handleSubmit}>
+            <div className="formS-row">
+              <div className="formS-group">
+                <label htmlFor="firstName">First Name</label>
+                <input
+                  type="text"
+                  id="firstName"
+                  placeholder="Enter your first name"
+                  value={formData.firstName}
+                  onChange={handleChange}
+                />
+              </div>
+              <div className="formS-group">
+                <label htmlFor="lastName">Last Name</label>
+                <input
+                  type="text"
+                  id="lastName"
+                  placeholder="Enter your last name"
+                  value={formData.lastName}
+                  onChange={handleChange}
+                />
+              </div>
+            </div>
+            <div className="formS-row">
+              <div className="formS-group">
+                <label htmlFor="username">Username</label>
+                <input
+                  type="text"
+                  id="username"
+                  placeholder="Enter your username"
+                  value={formData.username}
+                  onChange={handleChange}
+                />
+              </div>
+              <div className="formS-group">
+                <label htmlFor="email">Email Address</label>
+                <input
+                  type="email"
+                  id="email"
+                  placeholder="Enter your email"
+                  value={formData.email}
+                  onChange={handleChange}
+                />
+              </div>
+            </div>
+            <div className="formS-row">
+              <div className="formS-group">
+                <label htmlFor="password1">Password</label>
+                <input
+                  type="password"
+                  id="password1"
+                  placeholder="Enter your password"
+                  value={formData.password1}
+                  onChange={handleChange}
+                />
+              </div>
+              <div className="formS-group">
+                <label htmlFor="password2">Re-enter your password</label>
+                <input
+                  type="password"
+                  id="password2"
+                  placeholder="Re-enter your password"
+                  value={formData.password2}
+                  onChange={handleChange}
+                />
+              </div>
+            </div>
+            <button type="submit" className="signup-button">
+              Sign Up
+            </button>
+          </form>
+        </div>
       </div>
     </div>
   );

@@ -7,7 +7,6 @@
 .Container {
   gap: 70px;
   display: flex;
-  flex-direction: row;
 }
 
 .feedback-section {
@@ -38,6 +37,7 @@
   border-radius: 4px;
   background-color: #2a2a2a;
   color: #fff;
+  width: 80%;
 }
 
 .feedback-form button {
@@ -47,6 +47,7 @@
   border: none;
   border-radius: 4px;
   cursor: pointer;
+  width: 50%;
 }
 
 .feedback-form button:hover {
@@ -148,24 +149,49 @@
     flex: 1 1 calc(50% - 20px);
   }
 
-  .feedback-section {
-    text-align: center;
+  .subscription input {
+    width: 50%;
   }
 }
-
-/* Tablets (768px) */
+@media (max-width: 780px) {
+  .feedback-section {
+    margin-left: 10px;
+  }
+  .feedback-form button {
+    width: 60%;
+  }
+  .subscription input {
+    width: 30%;
+  }
+}
 @media (max-width: 768px) {
   .footer-content {
     flex-direction: row;
     gap: 20px;
   }
-
-  .footer-column {
-    flex: 1 1 100%;
-  }
 }
 
-/* Small screens (425px) */
+@media (max-width: 520px) {
+  .Container {
+    gap: 10px;
+    font-size: 13px;
+    flex-direction: column;
+  }
+  .feedback-section {
+    /* text-align: center; */
+    margin-left: 40px;
+  }
+  .feedback-section input {
+    width: 60%;
+  }
+  .feedback-form button {
+    width: 30%;
+  }
+
+  .footer-column {
+    width: 60%;
+  }
+}
 @media (max-width: 425px) {
   .feedback-form input,
   .subscription input {

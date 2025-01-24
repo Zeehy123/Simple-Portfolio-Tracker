@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import axios from "axios";
+import axios from "../axiosInstance";
 import Chart from "chart.js/auto";
 
 const PortfolioBarChart = () => {

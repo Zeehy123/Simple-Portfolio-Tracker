@@ -10,7 +10,6 @@ const axiosInstance = axios.create({
   baseURL: BASE_URL,
 });
 
-// Add a request interceptor to include the token
 axiosInstance.interceptors.request.use(
   (config) => {
     const token = getToken();

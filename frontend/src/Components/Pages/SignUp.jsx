@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./SignUp.css";
 import axios from "../axiosInstance";
 import { useNavigate } from "react-router-dom";
+
 const SignUp = () => {
   const [formData, setFormData] = useState({
     firstName: "",
@@ -15,6 +16,7 @@ const SignUp = () => {
   const [successMessage, setSuccessMessage] = useState("");
 
   const navigate = useNavigate();
+
   const handleChange = (e) => {
     const { id, value } = e.target;
     setFormData({ ...formData, [id]: value });
@@ -54,11 +56,17 @@ const SignUp = () => {
     }
   };
 
+  const handleClose = () => {
+    navigate("/"); // Change "/" to the desired route
+  };
+
   return (
     <div className="signup-container">
       <div className="signup-header">
-        <img src="/logo.png" alt="Logo" className="logo" />
-        <h1>am_stock</h1>
+        <h1>Am_stock</h1>
+        <button className="close-button" onClick={handleClose}>
+          &times;
+        </button>
       </div>
       <div className="signup-form">
         <h2>Sign Up</h2>
@@ -98,7 +106,6 @@ const SignUp = () => {
                 onChange={handleChange}
               />
             </div>
-
             <div className="form-group">
               <label htmlFor="email">Email Address</label>
               <input

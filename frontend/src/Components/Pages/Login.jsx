@@ -35,11 +35,16 @@ const Login = () => {
       }
     }
   };
-
+  const handleClose = () => {
+    navigate("/");
+  };
   return (
     <div className="login-container">
       <div className="login-box">
         <h2>Log In</h2>
+        <button className="close-button" onClick={handleClose}>
+          &times;
+        </button>
         {errorMessage && <p className="error-message">{errorMessage}</p>}
         <form className="login-form" onSubmit={handleSubmit}>
           <div className="input-group">

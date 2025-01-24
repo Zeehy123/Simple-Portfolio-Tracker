@@ -170,9 +170,10 @@ SIMPLE_JWT = {
 CORS_ALLOW_CREDENTIALS = True
 
 CORS_ALLOWED_ORIGINS = [
-    "https://simple-portfolio-tracker-nine.vercel.app",  # React frontend
+    # "http://localhost:3000", 
+"https://simple-portfolio-tracker-nine.vercel.app", 
+    
 ]
-
 
 
 STATIC_URL = '/static/'

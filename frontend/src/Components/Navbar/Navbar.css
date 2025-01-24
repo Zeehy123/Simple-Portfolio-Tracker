@@ -107,7 +107,7 @@
     right: 0;
     background-color: #272b3b;
     padding: 20px;
-    width: 200px;
+    /* width: 200px; */
     height: 100%;
     text-align: center;
     z-index: 1000;
@@ -132,6 +132,9 @@
 @media (max-width: 400px) {
   .headerN {
     padding: 5px 10px;
+  }
+  .nav.open {
+    width: 130px;
   }
 }
 

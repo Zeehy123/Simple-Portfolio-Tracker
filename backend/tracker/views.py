@@ -174,19 +174,19 @@ class BarChartDataView(APIView):
 
     def get(self, request):
         try:
-            # Filter stocks for the authenticated user
+           
             stocks = Stock.objects.filter(user=request.user)
 
             if not stocks.exists():
                 return Response({"message": "No valid stocks found."}, status=status.HTTP_404_NOT_FOUND)
 
-            # Debugging
+            
             print("Fetched stocks:", stocks)
 
-            # Prepare data for the bar chart
+            
             chart_data = {
                 "labels": [stock.name for stock in stocks],
-                "data": [{"total_value": stock.value} for stock in stocks],  # Ensure the data is structured properly
+                "data": [{"total_value": stock.value} for stock in stocks],  
             }
 
             return Response(chart_data, status=status.HTTP_200_OK)

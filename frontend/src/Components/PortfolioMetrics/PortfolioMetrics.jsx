@@ -45,7 +45,7 @@ const PortfolioMetrics = () => {
         const topThreeRes = await axios.get("/api/stocks/top-three-stocks");
         const topThree = topThreeRes.data;
 
-        // Update state
+       
         setPortfolioData({
           totalValue,
           dailyGainLoss,

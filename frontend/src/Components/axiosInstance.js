@@ -23,13 +23,11 @@ axiosInstance.interceptors.request.use(
   }
 );
 
-// response interceptor (  for refreshing tokens)
+// response interceptor
 axiosInstance.interceptors.response.use(
   (response) => response,
   (error) => {
-    // Handle token expiration or other errors here
     if (error.response?.status === 401) {
-      // For example, redirect to login or refresh the token
       console.error("Unauthorized! Redirecting to login.");
     }
     return Promise.reject(error);

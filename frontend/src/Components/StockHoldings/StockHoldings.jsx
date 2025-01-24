@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import axios from "../axiosInstance"; // Replace with your axios setup
+import axios from "../axiosInstance";
 import "./StockHolding.css";
 
 const StockHolding = () => {
@@ -18,7 +18,7 @@ const StockHolding = () => {
             Authorization: `Bearer ${accessToken}`,
           },
         });
-        setStocks(response.data); // Set the fetched stock data
+        setStocks(response.data);
       } catch (err) {
         console.error("Error fetching stocks:", err);
         setError("Failed to load stock data. Please try again.");
@@ -42,7 +42,7 @@ const StockHolding = () => {
           Authorization: `Bearer ${accessToken}`,
         },
       });
-      setStocks(stocks.filter((stock) => stock.id !== id)); // Update local state
+      setStocks(stocks.filter((stock) => stock.id !== id));
     } catch (err) {
       console.error("Error deleting stock:", err);
       setError("Failed to delete stock. Please try again.");

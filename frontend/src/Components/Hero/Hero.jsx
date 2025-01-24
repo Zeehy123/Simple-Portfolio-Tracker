@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import "./Hero.css";
 import heroImage from "../Assets/hero_section.png";
+import { Link } from "react-router-dom";
 const Hero = () => {
   const paragraphRef = useRef(null);
   const imageRef = useRef(null);
@@ -40,6 +41,7 @@ const Hero = () => {
           Dynamically
         </p>
         <button className="cta-btn">Start Tracking Now</button>
+        <Link className="cta-btn">Start Tracking Now</Link>
       </div>
       <div className="hero-image">
         <img ref={imageRef} src={heroImage} alt="Stock Tracking" />

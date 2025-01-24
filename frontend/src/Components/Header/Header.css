@@ -49,7 +49,6 @@
 
 /* Responsive styles */
 
-/* Screen size 1024px and below */
 @media (max-width: 1024px) {
   .search-bar {
     margin: 0 10px;
@@ -64,7 +63,6 @@
   }
 }
 
-/* Screen size 768px and below */
 @media (max-width: 768px) {
   .search-bar {
     flex: none;
@@ -81,7 +79,6 @@
   }
 }
 
-/* Screen size 425px and below */
 @media (max-width: 425px) {
   .header {
     flex-direction: row;
@@ -95,7 +92,6 @@
   }
 }
 
-/* Screen size 400px and below */
 @media (max-width: 400px) {
   .icon1 {
     font-size: 1rem;
@@ -106,7 +102,6 @@
   }
 }
 
-/* Screen size 380px and below */
 @media (max-width: 380px) {
   .header {
     height: auto;
@@ -114,7 +109,6 @@
   }
 }
 
-/* Screen size 350px and below */
 @media (max-width: 350px) {
   .icon {
     font-size: 0.9rem;
@@ -125,7 +119,6 @@
   }
 }
 
-/* Screen size 320px and below */
 @media (max-width: 320px) {
   .header {
     padding: 5px;

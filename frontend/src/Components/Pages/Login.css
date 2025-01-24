@@ -107,7 +107,6 @@
   background-color: #333;
 }
 
-/* Policy */
 .policy {
   font-size: 12px;
   color: #888;
@@ -119,7 +118,6 @@
   color: #000;
 }
 
-/* Responsive Adjustments */
 @media (max-width: 1440px) {
   .login-box {
     width: 380px;

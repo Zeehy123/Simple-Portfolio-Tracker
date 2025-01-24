@@ -45,7 +45,6 @@
   }
 }
 
-/* Trigger animation when the bounce class is added */
 .feature-image.bounce {
   animation: bounce 2s ease-in-out;
 }
@@ -170,7 +169,6 @@
   }
 }
 
-/* Tablet Screens (768px) */
 @media screen and (max-width: 768px) {
   .feature-left img {
     width: 85%;
@@ -195,7 +193,6 @@
   }
 }
 
-/* Small Screens (425px) */
 @media screen and (max-width: 425px) {
   .feature-left h2 {
     font-size: 22px;
@@ -224,7 +221,6 @@
   }
 }
 
-/* Extra Small Screens (400px, 380px, 350px, 320px) */
 @media screen and (max-width: 400px) {
   .feature-section {
     padding: 12px;

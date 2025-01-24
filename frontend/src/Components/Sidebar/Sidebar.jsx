@@ -10,22 +10,19 @@ import {
 import { AiOutlineStock } from "react-icons/ai"; // Stocks icon
 import { BsChevronDown, BsChevronUp } from "react-icons/bs"; // Dropdown arrows
 import "./Sidebar.css";
-// import axios from "../axiosInstance";
-const Sidebar = ({ isOpen, setActivePage }) => {
-  const [isStocksOpen, setIsStocksOpen] = useState(false); // Dropdown state
 
+const Sidebar = ({ isOpen, setActivePage }) => {
+  const [isStocksOpen, setIsStocksOpen] = useState(false);
   const toggleStocksDropdown = () => {
-    setIsStocksOpen(!isStocksOpen); // Toggle the dropdown state
+    setIsStocksOpen(!isStocksOpen);
   };
   const navigate = useNavigate();
 
   const handleLogout = () => {
-    // Clear all user-related data from localStorage
     localStorage.removeItem("accessToken");
     localStorage.removeItem("refreshToken");
     localStorage.removeItem("user");
 
-    // Redirect the user to the home page
     navigate("/", { replace: true });
   };
   return (
@@ -33,13 +30,11 @@ const Sidebar = ({ isOpen, setActivePage }) => {
       <div className="name">{isOpen && "am_stock"}</div>
       <div className="sidebar-content">
         <ul>
-          {/* Dashboard */}
           <li onClick={() => setActivePage("dashboard")}>
             <FaTachometerAlt className="icon" />
             {isOpen && <span>Dashboard</span>}
           </li>
 
-          {/* Stocks */}
           <div className="dropdown-toggle" onClick={toggleStocksDropdown}>
             <AiOutlineStock className="icon" />
             {isOpen && <span>Stocks</span>}
@@ -63,13 +58,11 @@ const Sidebar = ({ isOpen, setActivePage }) => {
             </ul>
           )}
 
-          {/* Portfolio */}
           <li onClick={() => setActivePage("portfolioMetrics")}>
             <FaChartLine className="icon" />
             {isOpen && <span>Portfolio</span>}
           </li>
 
-          {/* Account */}
           <li onClick={() => setActivePage("profile")}>
             <FaUser className="icon" />
             {isOpen && <span>Account</span>}

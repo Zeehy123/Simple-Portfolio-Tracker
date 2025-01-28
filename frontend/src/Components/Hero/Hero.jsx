@@ -40,8 +40,10 @@ const Hero = () => {
           Manage Your Portfolio With Ease And Track Your Stocks' Performance
           Dynamically
         </p>
-        <button className="cta-btn">Start Tracking Now</button>
-        <Link className="cta-btn">Start Tracking Now</Link>
+
+        <Link to="/signup" className="cta-btn">
+          Start Tracking Now
+        </Link>
       </div>
       <div className="hero-image">
         <img ref={imageRef} src={heroImage} alt="Stock Tracking" />
